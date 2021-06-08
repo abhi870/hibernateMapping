@@ -6,16 +6,17 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.UUID;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 public class MembershipModel {
 
-    private long membershipId;
+    private UUID membershipId;
 
 
-    private long memberId;
+    private UUID memberId;
 
 
     private String membershipPackage;

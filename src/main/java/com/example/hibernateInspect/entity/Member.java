@@ -3,19 +3,22 @@ package com.example.hibernateInspect.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.UUID;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Table(name = "member")
+@Table(name = "umember")
 public class Member {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(generator = "uuidGenerator")
+    @GenericGenerator(name="uuidGenerator", strategy = "uuid2")
     @Column(name = "memberid")
-    private long memberId;
+    private UUID memberId;
     @Column(name = "firstname")
     private String firstName;
     @Column(name = "lastname")
