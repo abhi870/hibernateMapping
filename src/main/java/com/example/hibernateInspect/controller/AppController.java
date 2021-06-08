@@ -26,6 +26,13 @@ public class AppController {
     }
     @PostMapping("/do")
     public boolean doSomething(@RequestBody Input input){
+        Membership m = new Membership();
+        Member m2 = new Member();
+        m2.setFirstName(input.getFirstName());
+        m2.setLastName(input.getLastName());
+        m.setMember(m2);
+        m.setMembershipPackage(input.getMembershipPackage());
+        appRepository.save(m);
         return true;
     }
 }

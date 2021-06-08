@@ -8,9 +8,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class Input {
-    private long membershipId;
-    private long memberId;
+
     private String membershipPackage;
-    private String mFirstName;
-    private String mLastName;
+    private String firstName;
+    private String lastName;
 }

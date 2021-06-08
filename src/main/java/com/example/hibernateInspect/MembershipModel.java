@@ -12,10 +12,10 @@ import javax.persistence.*;
 @Data
 public class MembershipModel {
 
-    private String membershipId;
+    private long membershipId;
 
 
-    private String memberId;
+    private long memberId;
 
 
     private String membershipPackage;

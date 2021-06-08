@@ -13,8 +13,9 @@ import javax.persistence.*;
 @Table(name = "membership")
 public class Membership {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "membershipid")
-    private String membershipId;
+    private long membershipId;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "memberid", referencedColumnName = "memberid")
