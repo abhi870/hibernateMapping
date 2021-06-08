@@ -21,6 +21,6 @@ public class Member {
     @Column(name = "lastname")
     private String lastName;
 
-    @OneToOne(mappedBy = "member")
-    private Membership membership;
+//    @OneToOne(mappedBy = "member")
+//    private Membership membership;
 }

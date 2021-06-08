@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @AllArgsConstructor
@@ -17,9 +18,8 @@ public class Membership {
     @Column(name = "membershipid")
     private long membershipId;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "memberid", referencedColumnName = "memberid")
-    private Member member;
+    @OneToMany(mappedBy = "memberId")
+    private List<Member> members;
 
     @Column(name = "membershippackage")
     private String membershipPackage;
