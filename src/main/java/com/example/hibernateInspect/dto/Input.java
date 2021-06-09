@@ -5,13 +5,16 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+import java.util.Set;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 public class Input {
 
-    private String membershipPackage;
-    private List<Member> members;
+   private String firstName;
+   private String lastName;
+   private String email;
+   private Set<Long> accountNumbers;
 
 }
