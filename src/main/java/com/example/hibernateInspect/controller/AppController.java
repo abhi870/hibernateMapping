@@ -8,8 +8,11 @@ import com.example.hibernateInspect.repository.AppRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @RestController
 public class AppController {
@@ -20,7 +23,7 @@ public class AppController {
     @GetMapping("/get/{membershipId}")
     public MembershipModel get(@PathVariable String membershipId) {
         Membership m =  appRepository.findByMembershipId(membershipId);
-        return new MembershipModel(m.getMembershipId(), m.getMember().getMemberId(), m.getMembershipPackage());
+        return new MembershipModel(m.getMembershipId(), m.getMembers().stream().map(e->e.getMemberId()).collect(Collectors.toList()), m.getMembershipPackage());
     }
 
     @GetMapping
@@ -30,12 +33,17 @@ public class AppController {
     @PostMapping("/do")
     public boolean doSomething(@RequestBody Input input){
         Membership m = new Membership();
-        Member m2 = new Member();
-        m2.setFirstName(input.getFirstName());
-        m2.setLastName(input.getLastName());
-        m.setMember(m2);
+        Set<Member> mems = new HashSet<>();
+        input.getMembers().stream().forEach(e->mems.add(getMember(e.getFirstName(), e.getLastName())));
+        m.setMembers(mems);
         m.setMembershipPackage(input.getMembershipPackage());
         appRepository.save(m);
         return true;
+    }
+    public Member getMember(String firstName, String lastName){
+        Member m = new Member();
+        m.setFirstName(firstName);
+        m.setLastName(lastName);
+        return m;
     }
 }

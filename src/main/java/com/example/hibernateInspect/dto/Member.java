@@ -4,14 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class Input {
-
-    private String membershipPackage;
-    private List<Member> members;
-
+public class Member {
+    private String firstName;
+    private String lastName;
 }

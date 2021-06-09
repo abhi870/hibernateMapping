@@ -14,13 +14,13 @@ import javax.persistence.*;
 public class Member {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "memberid")
-    private long memberId;
+    @Column(name = "memberid", unique = true, nullable = false)
+    private Long memberId;
     @Column(name = "firstname")
     private String firstName;
     @Column(name = "lastname")
     private String lastName;
 
-    @OneToOne(mappedBy = "member")
+    @ManyToOne(fetch = FetchType.EAGER)
     private Membership membership;
 }

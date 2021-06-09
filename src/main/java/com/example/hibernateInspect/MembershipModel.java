@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -15,7 +16,7 @@ public class MembershipModel {
     private long membershipId;
 
 
-    private long memberId;
+    private List<Long> memberId;
 
 
     private String membershipPackage;
