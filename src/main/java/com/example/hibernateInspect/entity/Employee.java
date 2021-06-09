@@ -30,6 +30,7 @@ public class Employee {
     @Column(name = "last_name")
     private String lastname;
 
-    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "EMPLOYEE_ID")
     private Set<Account> accounts;
 }

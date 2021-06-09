@@ -25,7 +25,6 @@ public class Account {
     private Long accountNumber;
 
    @ManyToOne
-   @JoinColumn(name = "EMPLOYEE_ID")
     private Employee employee;
 
 }
