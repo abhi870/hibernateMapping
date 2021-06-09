@@ -22,8 +22,7 @@ public class Membership {
     @Column(name = "membershippackage")
     private String membershipPackage;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "MEMBERSHIP_MEMBERSHIPID")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "membership")
     private Set<Member> members;
 
 }

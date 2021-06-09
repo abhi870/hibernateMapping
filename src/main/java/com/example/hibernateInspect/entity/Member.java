@@ -22,5 +22,6 @@ public class Member {
     private String lastName;
 
     @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "membershipid")
     private Membership membership;
 }
